@@ -15,34 +15,67 @@ public class Main
  //BufferedReader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        long start = System.currentTimeMillis();
+    
 		String input1 = br.readLine();
 		int limit = Integer.parseInt(input1);
 		
-        for (int y=0;y<limit;y++) {
-                String input2 = br.readLine();
-                String input3 = br.readLine();
+        while (limit!=0) {
+                //String input2 = br.readLine();
+                //String input3 = br.readLine();
                 
-                String[] inputArray = input2.split(" ");
-                String[] splitArray = input3.split(" ");
+                String[] inputArray = br.readLine().split(" ");
+                String[] splitArray = br.readLine().split(" ");
                 
+                int a=Integer.parseInt(inputArray[0]);
+                int b=Integer.parseInt(inputArray[1]);
+                
+                int index = a-(b%a);
+                
+                
+                int i=index;
+                while (i<a){
+                    System.out.print(splitArray[i]+" ");
+                    i+=1;
+                }
+                
+                i=0;
+                while (i<index){
+                    System.out.print(splitArray[i]+" ");
+                    i+=1;
+                }
+                /*
+                for(int i=index;i<a;i++){
+                    System.out.print(splitArray[i]+" ");
+                }
+                
+                for(int i=0;i<index;i++){
+                    System.out.print(splitArray[i]+" ");
+                }*/
+                
+                /*
                 List<String> list = Arrays.asList(splitArray);
                 LinkedList<String> ll = new LinkedList<String>(list);
                 
                 int xy=Integer.parseInt(inputArray[1]);
-   
+                
+                int i=1;
+                while (i<=xy){
+                     ll.addFirst(ll.removeLast());
+                     i=i+1;
+                }
+                
                 for (int j=1; j<=xy; j++){
                         ll.addFirst(ll.removeLast());
                 }
                 
                 Iterator it = ll.iterator();
                 it.forEachRemaining((numbr) -> System.out.print(numbr+" "));
-
+                */
                 System.out.println("\n");    
+                limit-=1;
             }
             
-            long end = System.currentTimeMillis();
-            System.out.println(end-start);
+
             
     }
 }
