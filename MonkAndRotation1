@@ -1,0 +1,48 @@
+
+import java.util.*;
+import java.io.*;
+
+public class Main
+{
+	public static void main(String[] args) throws Exception {
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String input1 = br.readLine();
+        for (int y=0;y<Integer.parseInt(input1);y++) {
+                String input2 = br.readLine();
+                String input3 = br.readLine();
+                
+                String[] inputArray = input2.split(" ");
+                String[] splitArray = input3.split(" ");
+                
+                
+                LinkedList<String> ll = new LinkedList<String>();
+                
+                int[] array = new int[splitArray.length];
+                
+                for (int i = 0; i < splitArray.length; i++) {
+                    array[i] = Integer.parseInt(splitArray[i]);
+                    ll.add(array[i]+"");
+                }
+                
+                
+                
+                for (int j=1; j<=Integer.parseInt(inputArray[1]); j++){
+                        ll.addFirst(ll.removeLast());
+                }
+                
+            String[] a = new String[splitArray.length];
+            ll.toArray(a);
+            
+            for (int i=0;i<splitArray.length;i++){
+                System.out.print(a[i]+" ");
+                
+            }
+              System.out.println("\n");    
+                
+        
+            }
+           
+    }
+   
+}
