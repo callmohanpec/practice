@@ -1,4 +1,10 @@
+/******************************************************************************
 
+                            Online Java Compiler.
+                Code, Compile, Run and Debug java program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
 import java.util.*;
 import java.io.*;
 
@@ -6,43 +12,37 @@ public class Main
 {
 	public static void main(String[] args) throws Exception {
 
+ //BufferedReader
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        long start = System.currentTimeMillis();
 		String input1 = br.readLine();
-        for (int y=0;y<Integer.parseInt(input1);y++) {
+		int limit = Integer.parseInt(input1);
+		
+        for (int y=0;y<limit;y++) {
                 String input2 = br.readLine();
                 String input3 = br.readLine();
                 
                 String[] inputArray = input2.split(" ");
                 String[] splitArray = input3.split(" ");
                 
+                List<String> list = Arrays.asList(splitArray);
+                LinkedList<String> ll = new LinkedList<String>(list);
                 
-                LinkedList<String> ll = new LinkedList<String>();
-                
-                int[] array = new int[splitArray.length];
-                
-                for (int i = 0; i < splitArray.length; i++) {
-                    array[i] = Integer.parseInt(splitArray[i]);
-                    ll.add(array[i]+"");
-                }
-                
-                
-                
-                for (int j=1; j<=Integer.parseInt(inputArray[1]); j++){
+                int xy=Integer.parseInt(inputArray[1]);
+   
+                for (int j=1; j<=xy; j++){
                         ll.addFirst(ll.removeLast());
                 }
                 
-            String[] a = new String[splitArray.length];
-            ll.toArray(a);
+                Iterator it = ll.iterator();
+                it.forEachRemaining((numbr) -> System.out.print(numbr+" "));
+
+                System.out.println("\n");    
+            }
             
-            for (int i=0;i<splitArray.length;i++){
-                System.out.print(a[i]+" ");
-                
-            }
-              System.out.println("\n");    
-                
-        
-            }
-           
+            long end = System.currentTimeMillis();
+            System.out.println(end-start);
+            
     }
-   
 }
